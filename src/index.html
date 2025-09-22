@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0A9300">
+    <title>Payeton's Beauty Place</title>
+    <link href="common.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
+
+    <!-- MONTSERRAT & LIBRE BASKERVILLE FONT --> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- MONTSERRAT & LIBRE BASKERVILLE FONT --> 
+
+    <!-- SWIPER -->
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <!-- SWIPER -->
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <!-- AOS -->
+</head>
+<body id="body">
+    <header class="header DESKTOP">
+        <nav id="nav">
+            <div class="nav_links left">
+                <a href="services.html" class="nav_link">Services</a>
+                <a href="gallery.html" class="nav_link">Gallery</a>
+            </div>
+            <div class="nav_logo--container">
+                <a href="index.html"><img src="media/payetonlogo.png" alt="logo"></a>
+            </div>
+            <div class="nav_links right">
+                <a href="ourteam.html" class="nav_link">Our Team</a>
+                <a href="contactus.html" class="nav_link">Contact Us</a>   
+            </div>
+            <button class="menu_button" id="hamburger">
+                <img src="media/hamburger.png" alt="Menu" width="45px" height="auto" id="MenuIMG">
+            </button> 
+            <div class="MOBILE_nav-links">
+                <a href="services.html" class="nav_link">Services</a>
+                <a href="gallery.html" class="nav_link">Gallery</a>
+                <a href="ourteam.html" class="nav_link">Our Team</a>
+                <a href="contactus.html" class="nav_link">Contact Us</a>
+            </div> 
+        </nav>
+    </header>
+    <main id="main">
+        <section>
+            <div class="hero_section" id="hero_section">
+                <div class="hero_section--text">
+                    <h1>Your Complete Beauty Experience Under One Roof</h1>
+                    <h3>From stunning hair transformations to luxurious skincare and flawless nails, experience expert care in our modern salon.</h3>
+                    <div class="hero_section_bullets">
+                        <p data-aos="fade-right"><span class="hero_section--text--check">✓</span>Top-of-the-line stylists and beauticians</p>
+                        <p data-aos="fade-right" data-aos-delay="300"><span class="hero_section--text--check DESKTOP">✓</span>Premium products and treatments</p>
+                        <p data-aos="fade-right" data-aos-delay="500"><span class="hero_section--text--check DESKTOP">✓</span>Relaxing atmosphere in the heart of Montego Bay</p>
+                    </div>
+                    <div class="hero_section--CTA DESKTOP">
+                        <button onclick="window.location.href='services.html';">Services and Pricing</button>
+                    </div>
+                </div> 
+                <div class="carousel--container">
+                    <!-- Slider main container -->
+                    <div class="swiper">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <div class="swiper-slide"><img src="media/carouselmedia6.png" alt=""></div>
+                            <div class="swiper-slide"><img src="media/carouselmedia2.png" alt=""></div>
+                            <div class="swiper-slide"><img src="media/carouselmedia5.png" alt=""></div>
+                            <div class="swiper-slide"><img src="media/carouselmedia3.png" alt=""></div>
+                            <div class="swiper-slide"><img src="media/carouselmedia4.png" alt=""></div>
+                            <div class="swiper-slide"><video src="media/carouselmedia7.mp4" alt="" autoplay muted loop style="pointer-events: none;"></div>
+                        </div>
+                    
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    
+                        <!-- If we need scrollbar -->
+                        <div class="swiper-scrollbar"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="testimonial_section">
+                <div class="testimonial_section--TOP">
+                    <div class="testimonial_review" data-aos="fade-up">
+                        <img src="media/five-stars.png">
+                        <img src="media/google.png">
+                        <h3>4.9 Stars on Google Review</h3>
+                    </div>
+                    <div class="testimonial_review" data-aos="fade-up">
+                        <img src="media/five-stars.png">
+                        <img src="media/facebook.png">
+                        <h3>5 Star Reviews on Facebook</h3>
+                    </div>
+                </div>
+                <div class="testimonial_section--BOTTOM">
+                    <div class="testimonial_quote--container">
+                        <div class="testimonial_quote">
+                            <p>" The stylist did such a great job, I couldn't believe that was the same head of hair I walked in with! All in all, a true 5-star experience. "</p>
+                            <cite style="font-weight: 500;">—Kris W.</cite>
+                        </div>
+                        <div class="testimonial_quote">
+                            <p>" When you need to relax and be catered to, this is the place to be. Absolutely loved the environment and the service was excellent. We will definitely be back! "</p>
+                            <cite style="font-weight: 500;">—Judine Dawkins</cite>
+                        </div>
+                        <div class="testimonial_quote">
+                            <p>" The team is so welcoming and warm, I enjoy every second. My nails look exceptional and I feel refreshed everytime. I 100% recommend them! "</p>
+                            <cite style="font-weight: 500;">—Kelsey Keane</cite>
+                        </div>
+                    </div>
+                    <div class="testimonial_section--CTA">
+                        <button onclick="window.location.href='reviews.html';">See More</button>
+                    </div>
+                </div> 
+            </div> 
+            <div class="MOBILE_testimonial_section">
+                <!-- Slider main container -->
+                <div class="swiper MOBILE">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <div class="testimonial_quote MOBILE">
+                            <p>" When you need to relax and be catered to, this is the place to be. Absolutely loved the environment and the service was excellent. We will definitely be back! "</p>
+                            <cite style="font-weight: 500;">—Judine Dawkins</cite>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial_quote MOBILE">
+                            <p>" The stylist did such a great job, I couldn't believe that was the same head of hair I walked in with! All in all, a true 5-star experience. "</p>
+                            <cite style="font-weight: 500;">—Kris W.</cite>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial_quote MOBILE">
+                            <p>" The team is so welcoming and warm, I enjoy every second. My nails look exceptional and I feel refreshed everytime. I 100% recommend them! "</p>
+                            <cite style="font-weight: 500;">—Kelsey Keane</cite>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="footer_info">
+            <div class="footer_contact">
+                <h2>Contact Us</h2>
+                <div class="footer_contact_inner">
+                    <img src="media/telephone.png" alt="Telephone Symbol">
+                    <p>Phone: </p>
+                    <a href="http://wa.link/zrzzu2">
+                        <div class="footer_contact_inner_numbers">
+                            <p>+1 876 842 0641</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="footer_contact_inner">
+                    <img src="media/email.png" alt="Email Symbol"><p>Email: </p>
+                    <p>support@payeton.com</p>
+                </div>
+            </div>
+            <div class="footer_social">
+                <h2>Follow Us</h2>
+                <div class="footer_social_inner">
+                    <a href="https://www.facebook.com/p/Payetons-Place-of-Beauty-100063628267769/"><img src="media/facebook.png" alt="Facebook Logo"></a>
+                    <a href="https://www.tiktok.com/@payetonsplaceofbeauty03"><img src="media/tik-tok.png" alt="TikTok Logo"></a>
+                    <a href="https://www.instagram.com/payetonplace_ofbeauty/"><img src="media/instagram.png" alt="Instagram Logo"></a>
+                </div>
+            </div>
+            <div class="footer_location">
+                <h2>Find Us</h2>
+                <address>
+                    Suite 8 & 9 <br>
+                    Catherine Hall Plaza <br>
+                    Fairfield Ave, Montego Bay <br>
+                    St. James
+                </address>
+            </div> 
+        </div>
+    </footer> 
+    <audio src="media/"></audio>
+    <script src="scripts/index.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+    const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
+      
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      
+        // And if we need scrollbar
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 600, // Animation duration in milliseconds
+            easing: 'ease-out',
+            once: true // Only animate once
+        });
+    </script> 
+</body>
+</html>

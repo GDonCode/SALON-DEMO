@@ -1,0 +1,489 @@
+body {
+    font-family: "Montserrat", sans-serif;
+}
+main {
+    padding: 1.25rem 0 0rem 0;
+    position: relative;
+}
+.hero {
+    padding: 40px;
+}
+.headline h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 3rem;
+    line-height: 1.35;
+    margin-bottom: 1.875rem;
+    font-weight: 650;
+    margin: 0;
+    text-align: center;
+}
+.headline p {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.2rem;
+}
+.service_selector {
+    display: flex;
+    justify-content: center;
+    gap: 140px;
+    border: 2px solid #087500;
+    border-radius: 5px;
+    padding: 20px;
+    width: 80%;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+.service_selector-grp1, .service_selector-grp2 {
+    display: flex;
+    gap: 140px;
+}
+.service_icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.service_icon button {
+    width: 140px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.3s ease, border-bottom 0.1s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+.service_icon button:hover {
+    transform: translateY(-10%);
+    border-bottom: 2px solid #087500;
+}
+.icon-indicator {
+    width: 20px;
+    height: auto;
+    margin-bottom: 10px;
+}
+.service_icon img {
+    width: 45px;
+    height: auto;
+}
+.down-arrow {
+    display: block;
+    margin: 30px auto 0px auto;
+}
+.section_divider {
+    border-color: #087500;
+    margin: 0;
+}
+.section {
+    padding: 60px;
+    background-color: white;
+}
+.service_accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+
+
+
+
+
+.accordion_item {
+    width: 100%;
+    padding: 0px 120px;
+}
+.accordion_down_icon {
+    width: 35px;
+    height: auto;
+    transition: transform 0.3s ease;
+    -webkit-user-select: none;  
+    user-select: none;
+    transform: rotateZ('0deg');
+}
+
+.accordion_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #0A9300;
+    border-radius: 5px;
+    padding: 5px 60px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.accordion_header {
+    /* STOP BLUE OVERLAY WHEN CLICKING */
+    -webkit-tap-highlight-color: transparent;  
+    outline: none;
+    /* STOP BLUE OVERLAY WHEN CLICKING */
+    background: url(media/papyrus.png);
+}
+.accordion_header_left {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.accordion_header_left h4 {
+    margin-right: 20px;
+    font-size: 1.3rem;
+    color: black;
+}
+.accordion_header:focus {
+    outline: none;
+}
+.accordion_header_left h4 {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.accordion_info {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    border: 0px solid #087500;
+    border-radius: 0px;
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out, border 0.1s ease-in-out, border-radius 0.3s ease-in-out;
+    /* From Uiverse.io by jaykdoe */ 
+    width: 100%;
+    /* height: 100%; */
+    /* Add your background pattern here */
+    background: linear-gradient(
+        -45deg,
+        #A8E1A1,
+        #a8e0a0,
+        #bdebb9,
+        #dcfce7, 
+        #f0fff0,
+        #d4f7d1
+    );
+    background-size: 400% 400%;
+    animation: gradient 30s ease infinite;
+    height: 200%;
+}
+  
+@keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 50% 100%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    75% {
+      background-position: 50% 0%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+}
+.accordion_info.expanded {
+    max-height: 1500px; 
+    padding: 10px 60px 40px 60px;
+    border: 2px solid #087500;
+    border-top: 0px;
+    border-radius: 5px;
+}
+
+.service_options {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.option_item {
+    color: black;
+}
+.option_item--top, .option_title-and-price {
+    display: flex;
+    align-items: center;
+}
+.option_title-and-price h4 {
+    font-size: 1.2rem;
+    margin-right: 20px;
+}
+.option_item--bottom p {
+    font-weight: 520;
+    margin: 0;
+}
+.option_item--info {
+    display: flex;
+    gap: 10px;
+}
+.option_item--info h5 {
+    background-color: #dcfce7;
+    border-radius:  5px;
+    padding: 2px 10px;
+    border: 2px solid #1f2937;
+    background-color: #1f2937;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.option_item input {
+    margin-left: auto;
+}
+
+.option_item_customisation {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+.option_item_customisation h5 {
+    font-size: 1rem;
+    margin-bottom: 0;
+    font-weight: 520;
+}
+.option_item_customisation select {
+    height: 2rem;
+    width: 180px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    border-radius: 5px;
+    border-color: #1f2937;
+}
+.option_item_customisation input {
+    border-color: #1f2937;
+}
+.option_item_customisation label {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-right: 1rem;
+}
+.option_item_customisation.expanded {
+    max-height: 500px;
+}
+.additional_services--container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.additional_services--container h5 {
+    margin-bottom: -10px;
+}
+.additional_services-inner--container {
+    display: flex;
+}
+#S1.ui-checkbox, #S2.ui-checkbox, #S3.ui-checkbox  {
+    margin-left: 0;
+}
+
+/* STOP BLUE OVERLAY WHEN CLICKING */
+
+.accordion_header_info {
+    font-size: .95rem;
+    background-color: #dcfce7;
+    border-radius:  10px;
+    padding: 5px;
+    border: 2px solid black;
+    color: black;
+}
+
+
+
+
+
+.section_title {
+    font-size: 1.5rem;
+    text-align: center;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: 60px;
+}
+.section_title img {
+    width: 45px;
+    height: auto;
+}
+.section_title h3 {
+    margin: 0;
+}
+.accordion_CTA_button {
+    display: block;
+    margin: 0 auto;
+    font-size: 1.35rem;
+    font-weight: 500;
+    border-radius: 12px;
+    border: none;
+    padding: 0.938rem 1.25rem;
+    background-color: #0A9300;
+    color: white;
+    box-shadow: hsl(125, 80%, 20%) 0px 7px 0px 0px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, font-size 0.3s ease;
+    width: 280px;
+}
+.accordion_CTA_button:hover {
+    background-color: #087500;
+    font-size: 1.5rem;
+}
+
+/* CHECKBOX FROM UIVERSE */
+/* From Uiverse.io by Galahhad */ 
+/* checkbox settings 👇 */
+
+.ui-checkbox {
+    --primary-color: #1677ff;
+    --secondary-color: #fff;
+    --primary-hover-color: #4096ff;
+    /* checkbox */
+    --checkbox-diameter: 20px;
+    --checkbox-border-radius: 5px;
+    --checkbox-border-color: black;
+    --checkbox-border-width: 1px;
+    --checkbox-border-style: solid;
+    /* checkmark */
+    --checkmark-size: 1.2;
+  }
+  
+  .ui-checkbox, 
+  .ui-checkbox *, 
+  .ui-checkbox *::before, 
+  .ui-checkbox *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  .ui-checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: var(--checkbox-diameter);
+    height: var(--checkbox-diameter);
+    border-radius: var(--checkbox-border-radius);
+    background: var(--secondary-color);
+    border: var(--checkbox-border-width) var(--checkbox-border-style) var(--checkbox-border-color);
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .ui-checkbox::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-box-shadow: 0 0 0 calc(var(--checkbox-diameter) / 2.5) var(--primary-color);
+    box-shadow: 0 0 0 calc(var(--checkbox-diameter) / 2.5) var(--primary-color);
+    border-radius: inherit;
+    opacity: 0;
+    -webkit-transition: all 0.5s cubic-bezier(0.12, 0.4, 0.29, 1.46);
+    -o-transition: all 0.5s cubic-bezier(0.12, 0.4, 0.29, 1.46);
+    transition: all 0.5s cubic-bezier(0.12, 0.4, 0.29, 1.46);
+  }
+  
+  .ui-checkbox::before {
+    top: 40%;
+    left: 50%;
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 7px;
+    border-right: 2px solid var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    -webkit-transform: translate(-50%, -50%) rotate(45deg) scale(0);
+    -ms-transform: translate(-50%, -50%) rotate(45deg) scale(0);
+    transform: translate(-50%, -50%) rotate(45deg) scale(0);
+    opacity: 0;
+    -webkit-transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6),opacity 0.1s;
+    -o-transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6),opacity 0.1s;
+    transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6),opacity 0.1s;
+  }
+  
+  /* actions */
+  
+  .ui-checkbox:hover {
+    border-color: var(--primary-color);
+  }
+  
+  .ui-checkbox:checked {
+    background: var(--primary-color);
+    border-color: transparent;
+  }
+  
+  .ui-checkbox:checked::before {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) rotate(45deg) scale(var(--checkmark-size));
+    -ms-transform: translate(-50%, -50%) rotate(45deg) scale(var(--checkmark-size));
+    transform: translate(-50%, -50%) rotate(45deg) scale(var(--checkmark-size));
+    -webkit-transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+    -o-transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+    transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+  }
+  
+  .ui-checkbox:active:not(:checked)::after {
+    -webkit-transition: none;
+    -o-transition: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    transition: none;
+    opacity: 1;
+  }
+/* CHECKBOX FROM UIVERSE */
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 20px;
+        padding-bottom: 40px;
+    }
+    .section {
+        padding: 40px 10px;
+    }
+    .service_selector {
+        width: 95%;
+        gap: 50px;
+        margin-top: 30px;
+    }
+    .service_selector-grp1, .service_selector-grp2 {
+        flex-direction: column;
+        gap: 0;
+    }
+    .service_icon img {
+        width: 40px;
+    }.service_icon h3 {
+        color: black;
+        font-size: 1rem;
+    }
+    .down-arrow {
+        margin-top: 0px;
+        width: 50px;
+    }
+    .accordion_item {
+        padding: 0 20px;
+    }
+    .accordion_item h4 {
+        margin: 30px 0px;
+    }
+    .accordion_header {
+        padding: 0px 40px;
+    }
+    .accordion_info.expanded {
+        padding: 10px 20px 40px 20px;
+    }
+    .ui-checkbox {
+        margin-top: -45px;
+        --checkbox-diameter: 25px;
+    }
+    .option_title-and-price {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .option_title-and-price h4 {
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+    .option_title-and-price h5 {
+        margin-top: 10px;
+    }
+}

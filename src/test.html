@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<!-- <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smooth UI Components</title>
+    <style>
+        /* Base styles for clean, modern look */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Container for all components */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            gap: 2rem;
+        }
+
+        /* Component 1: Smooth Card with Expand/Collapse */
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .card-content.expanded {
+            max-height: 500px;
+            margin-top: 1rem;
+        }
+
+        .expand-btn {
+            background: #007AFF;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .expand-btn:hover {
+            background: #0056b3;
+        }
+
+        /* Component 2: Smooth Notification Toast */
+        .toast-container {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .toast {
+            background: #333;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            transform: translateX(150%);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        /* Component 3: Smooth Tab Interface */
+        .tabs {
+            background: white;
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            position: relative;
+            color: #666;
+            transition: color 0.2s ease;
+        }
+
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #007AFF;
+            transform: scaleX(0);
+            transition: transform 0.2s ease;
+        }
+
+        .tab-btn.active {
+            color: #007AFF;
+        }
+
+        .tab-btn.active::after {
+            transform: scaleX(1);
+        }
+
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Component 1: Expandable Card 
+        <div class="card">
+            <h2>Smooth Expandable Card</h2>
+            <button class="expand-btn">Read More</button>
+            <div class="card-content">
+                <p>This is a smoothly expanding card component that demonstrates clean animations and modern interactions. Notice how the height animates smoothly and the card subtly responds to hover states.</p>
+            </div>
+        </div>
+
+        <!-- Component 2: Toast Trigger 
+        <div class="card">
+            <h2>Smooth Toast Notifications</h2>
+            <button class="expand-btn" onclick="showToast('Notification triggered!')">Show Toast</button>
+        </div>
+
+        <!-- Component 3: Tabs 
+        <div class="tabs">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="tab1">Tab 1</button>
+                <button class="tab-btn" data-tab="tab2">Tab 2</button>
+                <button class="tab-btn" data-tab="tab3">Tab 3</button>
+            </div>
+            <div class="tab-content active" id="tab1">
+                <h3>Tab 1 Content</h3>
+                <p>This is the content for tab 1. Notice the smooth transition between tabs.</p>
+            </div>
+            <div class="tab-content" id="tab2">
+                <h3>Tab 2 Content</h3>
+                <p>Here's tab 2's content. The indicator slides smoothly under the active tab.</p>
+            </div>
+            <div class="tab-content" id="tab3">
+                <h3>Tab 3 Content</h3>
+                <p>And finally, tab 3's content. All transitions are carefully timed for a natural feel.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container 
+    <div class="toast-container"></div>
+
+    <script>
+        // Component 1: Expandable Card
+        document.querySelector('.card .expand-btn').addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            content.classList.toggle('expanded');
+            this.textContent = content.classList.contains('expanded') ? 'Read Less' : 'Read More';
+        });
+
+        // Component 2: Toast Notifications
+        function showToast(message) {
+            const container = document.querySelector('.toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+
+            container.appendChild(toast);
+            
+            // Force reflow to ensure animation plays
+            toast.offsetHeight;
+            
+            // Show toast
+            requestAnimationFrame(() => {
+                toast.classList.add('show');
+            });
+
+            // Remove toast after delay
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    container.removeChild(toast);
+                }, 300);
+            }, 3000);
+        }
+
+        // Component 3: Tabs
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                document.querySelectorAll('.tab-btn').forEach(btn => 
+                    btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => 
+                    content.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Web UI Elements</title>
+    <style>
+        /* Modern CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --background: #ffffff;
+            --background-alt: #f3f4f6;
+        }
+
+        body {
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        /* Modern Navigation - Notice the subtle backdrop blur and smooth transitions */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text);
+            text-decoration: none;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.2s ease;
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Modern Header - Large, bold typography with subtle animations */
+        .header {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: var(--background-alt);
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* Modern CTA - Floating card with depth and interaction */
+        .cta {
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            background: var(--background);
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Modern Testimonials - Clean cards with subtle hover effects */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            background: var(--background-alt);
+        }
+
+        .testimonial-card {
+            background: var(--background);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Modern Footer - Clean, organized sections with smooth hover states */
+        .footer {
+            background: var(--text);
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-link:hover {
+            color: white;
+        }
+        /* Component 2: Smooth Notification Toast */
+        .toast-container {
+            position: fixed;
+            top: 5rem;
+            right: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .toast {
+            background: #333;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            transform: translateX(150%);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .expand-btn {
+            background: #007AFF;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .expand-btn:hover {
+            background: #0056b3;
+        }
+        /* ANIMATED GRADIENTS */
+        .gradient-card {
+            aspect-ratio: 1;
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Smooth Shifting Gradient */
+        .gradient-1 {
+            background: linear-gradient(45deg, 
+                 #087500, #784BA0, #2B86C5);
+            background-size: 300% 300%;
+            animation: gradientShift 8s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modern Navigation -->
+    <nav class="nav">
+        <div class="logo">ModernApp</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="#" class="nav-link">Features</a>
+            <a href="#" class="nav-link">Pricing</a>
+            <a href="#" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Modern Header -->
+    <header class="header">
+        <h1>Transform Your Experience</h1>
+        <p>Discover a new way to interact with web applications</p>
+    </header>
+
+    <!-- Modern CTA -->
+    <section class="cta">
+        <h2>Ready to Get Started?</h2>
+        <p>Join thousands of users who have already transformed their workflow</p>
+        <a href="#" class="cta-button">Start Free Trial</a>
+    </section>
+
+    <!-- Modern Testimonials -->
+    <section class="testimonials">
+        <div class="testimonial-card">
+            <p>"This platform has completely changed how we work. The interface is incredibly intuitive."</p>
+            <cite>- Sarah Johnson, Designer</cite>
+        </div>
+        <div class="testimonial-card">
+            <p>"The smoothest experience I've had with any web application. It feels native."</p>
+            <cite>- Mark Chen, Developer</cite>
+        </div>
+        <div class="testimonial-card">
+            <p>"Incredibly polished and professional. Our team's productivity has increased significantly."</p>
+            <cite>- Alex Rivera, Manager</cite>
+        </div>
+    </section>
+
+    <section>
+        <!-- Toast Trigger -->
+        <div class="card">
+            <h2>Smooth Toast Notifications</h2>
+            <button class="expand-btn" onclick="showToast('Notification triggered!')">Show Toast</button>
+        </div>
+    </section>
+
+    <section>
+        <div class="gradient-card gradient-1"></div>
+    </section>
+    <!-- Modern Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>Product</h3>
+                <a href="#" class="footer-link">Features</a>
+                <a href="#" class="footer-link">Pricing</a>
+                <a href="#" class="footer-link">Updates</a>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <a href="#" class="footer-link">About</a>
+                <a href="#" class="footer-link">Blog</a>
+                <a href="#" class="footer-link">Careers</a>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <a href="#" class="footer-link">Documentation</a>
+                <a href="#" class="footer-link">Help Center</a>
+                <a href="#" class="footer-link">Contact</a>
+            </div>
+        </div>
+    </footer>
+    <div class="toast-container"></div>
+    <script>
+        // Component 2: Toast Notifications
+            function showToast(message) {
+                const container = document.querySelector('.toast-container');
+                const toast = document.createElement('div');
+                toast.className = 'toast';
+                toast.textContent = message;
+
+                container.appendChild(toast);
+                
+                // Force reflow to ensure animation plays
+                toast.offsetHeight;
+                
+                // Show toast
+                requestAnimationFrame(() => {
+                    toast.classList.add('show');
+                });
+
+                // Remove toast after delay
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    setTimeout(() => {
+                        container.removeChild(toast);
+                    }, 300);
+                }, 3000);
+            }
+        </script>
+</body>
+</html>

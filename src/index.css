@@ -1,0 +1,270 @@
+
+/* DESKTOP STYLING START    DESKTOP STYLING START   DESKTOP STYLING START   DESKTOP STYLING START   DESKTOP STYLING START   DESKTOP STYLING START */
+main h1 {
+    font-family: "Montserrat", serif;
+    font-size: 2.2rem;
+    line-height: 1.3;
+    font-weight: 650;    
+    margin-bottom: 0;
+}
+.hero_section {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    font-family: "Montserrat", serif;
+    background: transparent;
+    padding: 0px 70px 2rem 70px;
+    border-radius: 0 0 20px 20px; 
+    background: transparent;
+}
+.hero_section--text {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    font-family: "Montserrat", serif;
+    padding-top: 15px;
+}
+.hero_section--text h3 {
+    max-width: 45ch;
+    margin: -10px 0 0 0;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    font-weight: 550;
+}
+.hero_section_bullets {
+    margin-bottom: -10px;
+    display: flex;
+    flex-direction: column;
+}
+.hero_section--text p {
+    margin: 0;
+    font-size: 1.2rem;
+}
+.hero_section--text--check {
+    color: #D4AF37;
+    font-size: 1.2rem;
+    margin-right: 0.25rem;
+}
+.hero_section--CTA {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    margin: 5px auto 0 auto;
+}
+.hero_section--CTA button {
+    padding: 0.938rem 1.25rem;
+    font-size: 1.35rem;
+    font-weight: 500;
+    background-color: #0A9300;
+    color: white;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;;
+    box-shadow: hsl(125, 80%, 20%) 0px 7px 0px 0px;
+}
+.hero_section--CTA button:hover {
+    transform: scale(1.05);
+}
+.carousel--container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 45%;
+    padding: 45px 0px 20px 0px;
+}
+.carousel--container button {
+    font-size: 1.35rem;
+    font-weight: 500;
+    padding: 0.938rem 1.25rem;
+    background-color: #0A9300;
+    color: white;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, font-size 0.3s ease;
+    margin: 0 auto;
+    width: 280px;
+    box-shadow: hsl(125, 80%, 20%) 0px 7px 0px 0px;
+}
+.carousel--container button:hover {
+    background-color: #087500;
+    font-size: 1.5rem;
+}
+.swiper {
+    height: 28.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+    border-radius: 0.313rem;
+    margin: 0 !important;
+}
+.swiper-slide img, .swiper-slide video {
+    width: 100%;
+    height: 94%;
+    object-fit: contain;
+    margin: 0 auto;
+}
+.swiper-button-prev::after, .swiper-button-next::after {
+    color: #0A9300;
+}
+.swiper-button-prev, .swiper-button-next {
+    font-size: 2rem;
+}
+
+/* TESTIMONIAL SECTION START */
+.MOBILE_testimonial_section {
+    display: none;
+    background: linear-gradient(135deg, rgba(0,128,0,0.05) 0%, rgba(0,128,0,0.1) 100%);
+}
+.testimonial_section {
+    display: flex;
+    flex-direction: column;
+}
+.testimonial_section--TOP {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 225px;
+    background: transparent;
+    border: none;
+}
+.testimonial_section--BOTTOM {
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 60px;
+    height: fit-content;
+    background: transparent;
+}
+.testimonial_quote--container {
+    display: flex;
+    gap: 2rem;
+}
+.testimonial_review img {
+    width: 60px;
+    height: 60px;
+}
+.testimonial_review {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.testimonial_quote p, .testimonial_quote blockquote {
+    margin: 0;
+}
+.testimonial_quote {
+    color: #1f2937;
+    width: 40ch;
+    background: white;
+    padding: 15px;
+    line-height: 1.5;
+    border: 2px solid #0A9300;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease;
+    padding: 32px;
+    height: fit-content;
+}
+.testimonial_quote:hover {
+    transform: translateY(-4px);
+}
+.testimonial_section--CTA {
+    width: 100%;
+    padding: 2.5rem 0px;
+    text-align: center;
+}
+.testimonial_section--CTA button {
+    width: 280px;
+    padding: 0.938rem;
+    font-size: 1.35rem;
+    font-weight: 500;
+    background-color: #0A9300;
+    color: white;
+    border-radius: 12px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: hsl(125, 80%, 20%) 0px 7px 0px 0px;
+}
+.testimonial_section--CTA button:hover {
+    transform: scale(1.05);
+}
+/* TESTIMONIAL SECTION END */
+
+@media (max-width: 768px) {
+    .hero_section{
+        flex-direction: column;
+        padding: 4rem 20px 2rem 20px;
+    }
+    .hero_section--text, .carousel--container {
+        width: 100%;
+    }
+    .hero_section--text {
+        padding: 15px 20px 0 20px;
+        gap: 40px;
+    }
+    .hero_section--text h1 {
+        font-size: 2rem;
+    }
+    .hero_section_bullets {
+        gap: 5px;
+    }
+    .hero_section_bullets p {
+        font-size: 1.1rem;
+    }
+    .hero_section h3 {
+        margin-bottom: -20px;
+        font-size: 1.1rem;
+    }
+    .carousel--container {
+        padding: 60px 0px;
+    }
+    .swiper-button-prev::after, .swiper-button-next:after {
+        display: none;
+    }
+    .footer_info {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .footer_info h2 {
+        text-align: left;
+    }
+    .footer_social {
+        margin-left: 0;
+    }
+    .footer_social_inner {
+        justify-content: left;
+    }
+    .testimonial_section--TOP {
+        justify-content: space-between;
+        margin-top: -20px;
+        padding: 40px 0 40px 10px;
+    }
+    .testimonial_review h3 {
+        text-align: center;
+        font-size: 1.15rem;
+    }
+    .testimonial_section--BOTTOM {
+        display: none;
+        background: transparent;
+    }
+    .MOBILE_testimonial_section {
+        display: block;
+        height: 280px;
+        padding: 40px 0px;
+    }
+    .swiper.MOBILE {
+        height: 240px;
+    }
+    .testimonial_quote.MOBILE {
+        margin: 0 auto;
+        width: 90%;
+    }
+    .testimonial_quote.MOBILE:hover {
+        transform: none;
+    }
+}

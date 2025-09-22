@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0A9300">
+    <title>Book an appointment</title>
+
+    <link href="common.css" rel="stylesheet">
+    <link href="booking.css" rel="stylesheet">
+
+    <!-- MONTSERRAT & LIBRE BASKERVILLE FONT --> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- MONTSERRAT & LIBRE BASKERVILLE FONT --> 
+
+    <!-- Flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_green.css">
+</head>
+<body>
+    <header class="header DESKTOP">
+        <nav>
+            <div class="nav_links left">
+                <a href="services.html" class="nav_link">Services</a>
+                <a href="gallery.html" class="nav_link">Gallery</a>
+            </div>
+            <div class="nav_logo--container">
+                <a href="index.html"><img src="media/payetonlogo.png" alt="logo"></a>
+            </div>
+            <div class="nav_links right">
+                <a href="ourteam.html" class="nav_link">Our Team</a>
+                <a href="contactus.html" class="nav_link">Contact Us</a>
+            </div>
+            <button class="menu_button" id="hamburger">
+                <img src="media/hamburger.png" alt="Menu" width="45px" height="auto" id="MenuIMG">
+            </button> 
+            <div class="MOBILE_nav-links">
+                <a href="services.html" class="nav_link">Services</a>
+                <a href="gallery.html" class="nav_link">Gallery</a>
+                <a href="ourteam.html" class="nav_link">Our Team</a>
+                <a href="contactus.html" class="nav_link">Contact Us</a>
+            </div>   
+        </nav>
+    </header>
+    <main>
+        <div class="booking_container">
+            <form action="" class="form">
+                <div class="personal_details--container">
+                    <h2>Personal Details</h2>
+                    <div class="name--container">
+                        <input type="text" name="first-name" id="first-name" placeholder="First Name" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[' -][A-Za-zÀ-ÖØ-öø-ÿ]+)*\.?(?:\s+(?:Jr\.|Sr\.|I{2,3}|IV|V))?$" required>
+                        <input type="text" name="last-name" id="last-name" placeholder="Last Name" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[' -][A-Za-zÀ-ÖØ-öø-ÿ]+)*\.?(?:\s+(?:Jr\.|Sr\.|I{2,3}|IV|V))?$" required>
+                    </div>
+                    <input type="email" name="email" id="email" placeholder="Email" required>
+                    <input type="tel" name="phone" id="phone" placeholder="Phone Number" pattern="^\d{10}$" required>
+                </div>
+                <div class="appointment_details--container">
+                    <h2>Appointment Details</h2>
+                    <input id="booking-date" type="text" placeholder="Select Date.." class="date-time_input">
+                    <input id="booking-time" type="text" placeholder="Select Time.." class="date-time_input">
+                </div>
+                <div class="message_container">
+                    <h2>Message</h2>
+                    <textarea name="message" id="message" rows="6" placeholder="Have any specific requests?"></textarea>
+                </div>
+                <div class="selected_service--container">
+                    <h2>Selected Services</h2>
+                    <ul id="services_list" style="display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    list-style-type: none;
+                    padding-left: 0;"></ul>
+                </div>
+            </form>
+            <div class="sticky_total">
+                <div class="total--container">
+                    <div class="total--container--inner">
+                        <h2 id="duration_text">Total Duration:</h2>
+                        <p id="service_duration"></p>
+                    </div>
+                    <div class="total--container--inner">
+                        <h2>Total Cost:</h2>
+                        <p id="total_cost"></p>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <button onclick="confirmBooking()" class="confirm_button">Confirm Booking</button>
+        <button class="reset_button" onclick="resetBooking()">Reset Booking</button>
+    </main>
+    <footer>
+        <div class="footer_info">
+            <div class="footer_contact">
+                <h2>Contact Us</h2>
+                <div class="footer_contact_inner">
+                    <img src="media/telephone.png" alt="Telephone Symbol">
+                    <p>Phone: </p>
+                    <a href="http://wa.link/zrzzu2">
+                        <div class="footer_contact_inner_numbers">
+                            <p>+1 876 842 0641</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="footer_contact_inner">
+                    <img src="media/email.png" alt="Email Symbol"><p>Email: </p>
+                    <p>support@payeton.com</p>
+                </div>
+            </div>
+            <div class="footer_social">
+                <h2>Follow Us</h2>
+                <div class="footer_social_inner">
+                    <a href="https://www.facebook.com/p/Payetons-Place-of-Beauty-100063628267769/"><img src="media/facebook.png" alt="Facebook Logo"></a>
+                    <a href="https://www.tiktok.com/@payetonsplaceofbeauty03"><img src="media/tik-tok.png" alt="TikTok Logo"></a>
+                    <a href="https://www.instagram.com/payetonplace_ofbeauty/"><img src="media/instagram.png" alt="Instagram Logo"></a>
+                </div>
+            </div>
+            <div class="footer_location">
+                <h2>Find Us</h2>
+                <address>
+                    Suite 8 & 9 <br>
+                    Catherine Hall Plaza <br>
+                    Fairfield Ave, Montego Bay <br>
+                    St. James
+                </address>
+            </div> 
+            <div class="footer_divider divider1"></div>
+            <div class="footer_divider divider2"></div>
+            <div class="footer_divider divider3"></div>
+            <div class="footer_divider divider4"></div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+         const datePicker = flatpickr("#booking-date", {
+            enableTime: false, // Disables time selection
+            disable: [
+                function(date) {
+                    // Disable Sundays (0 is Sunday in JavaScript)
+                    return date.getDay() === 0;
+                }
+            ],
+            minDate: "today",
+            onChange: function(selectedDates) {
+                // When the date changes, update the minTime for the time picker
+                const selectedDate = selectedDates[0];
+                const timePicker = document.querySelector("#booking-time")._flatpickr;
+
+                if (selectedDate.getDay() === 6) { // Saturday
+                    timePicker.set("minTime", "10:00");
+                } else { // Weekdays (Monday to Friday)
+                    timePicker.set("minTime", "09:00");
+                }
+
+                // Clear the selected time if the date changes
+                timePicker.clear();
+            }
+        });
+
+        const timePicker = flatpickr("#booking-time", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "h:i K",
+            minTime: "09:00", // Default minTime for weekdays
+            maxTime: "18:30",
+            disable: [
+                function(date) {
+                    // Disable Sundays
+                    return date.getDay() === 0;
+                }
+            ]
+        });
+    </script>
+</body>
+</html>
